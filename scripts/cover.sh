@@ -3,7 +3,7 @@
 set -e
 echo "" > cover.out
 
-for d in $(go list $@); do
+for d in $(go list ../...); do
     go test -race -coverprofile=profile.out $d
     if [ -f profile.out ]; then
         cat profile.out >> cover.out
